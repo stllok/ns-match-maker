@@ -16,7 +16,7 @@ static SERVER_CONFIG: Lazy<Value> = Lazy::new(|| {
 });
 
 
-pub async fn acquire(gamemode: &str) -> Result<(Option<u32>, Option<u32>)> {
+pub async fn acquire() -> Result<(Option<u32>, Option<u32>)> {
     let servers = Arc::new(containers().await?);
 
     let auth_port = (SERVER_CONFIG["StartMasterPort"].as_u64().unwrap() as u32
@@ -57,7 +57,7 @@ pub async fn acquire(gamemode: &str) -> Result<(Option<u32>, Option<u32>)> {
 pub async fn containers(
 ) -> Result<Vec<ContainerSummary>, docker_api::Error> {
     // default fillter
-    let mut fillter = vec![ContainerFilter::Label("UsedBy".into(), "NSCN".into())];
+    let fillter = vec![ContainerFilter::Label("UsedBy".into(), "NSCN".into())];
 
     DOCKER
         .containers()
