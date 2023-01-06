@@ -47,3 +47,4 @@ serde = "1"
 
 # uncategory
 docker-api = "0.12"
+rand = "0.8"
