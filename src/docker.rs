@@ -37,7 +37,7 @@ pub async fn create_server(gamemode: String) -> Result<String> {
                     SERVER_CONFIG["globalArgument"].as_str().unwrap(),
                     SERVER_CONFIG["gameserver"][&gamemode]["Argument"]
                         .as_str()
-                        .unwrap(),
+                        .ok_or_else(|| anyhow!("gamemode not found"))?,
                 ),
                 format!(
                     "NS_MASTERSERVER_URL={}",
@@ -73,7 +73,6 @@ pub async fn create_server(gamemode: String) -> Result<String> {
                 .create(
                     &ContainerCreateOpts::builder()
                         .image(SERVER_CONFIG["image"].as_str().expect("IMAGE not provided"))
-                        .name(&gamemode)
                         .memory_swap(-1)
                         .auto_remove(true)
                         .tty(true)
