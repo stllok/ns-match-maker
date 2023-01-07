@@ -1,3 +1,8 @@
+use mimalloc::MiMalloc;
+
+#[global_allocator]
+static GLOBAL: MiMalloc = MiMalloc;
+
 use std::{net::SocketAddr, time::Duration};
 
 use anyhow::Result;
