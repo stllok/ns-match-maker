@@ -16,11 +16,13 @@ pub async fn get_route() -> Router {
 
 async fn create_server(Path(paths): Path<HashMap<String, String>>) -> Json<Value> {
     match docker::create_server(paths.get("data").unwrap_or(&"".into()).to_string()).await {
-        Ok(token) => {
+        Ok((token, port, auth_port)) => {
             info!("Receive create_server requests: {token}");
             Json(json!({
                 "success": true,
-                "token": token
+                "token": token,
+                "port": port,
+                "auth_port": auth_port,
             }))
         }
         Err(err) => Json(json!({

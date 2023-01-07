@@ -21,7 +21,7 @@ static SERVER_CONFIG: Lazy<Value> = Lazy::new(|| {
     .expect("Unable to decode config.json to json")
 });
 
-pub async fn create_server(gamemode: String) -> Result<String> {
+pub async fn create_server(gamemode: String) -> Result<(String, u32, u32)> {
     match acquire().await {
         Ok((Some(port), Some(auth_port))) => {
             let labels = [
@@ -88,7 +88,7 @@ pub async fn create_server(gamemode: String) -> Result<String> {
 
             container.start().await?;
 
-            Ok(container.id().to_string())
+            Ok((container.id().to_string(), port, auth_port))
         }
         _ => Err(anyhow!("Unable to assign port or auth_port")),
     }
