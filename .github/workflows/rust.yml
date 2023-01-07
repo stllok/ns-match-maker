@@ -2,10 +2,6 @@ name: ci
 
 on:
   push:
-    paths:
-      - ".github/workflows/rust.yml"
-      - src/**
-      - scripts/mktag.sh
 
 jobs:
   server-docker:
