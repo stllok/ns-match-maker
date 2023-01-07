@@ -29,7 +29,6 @@ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 tracing = "0.1"
 
 # error handling
-thiserror = "1"
 anyhow = "1"
 
 # JSON encode / decode
@@ -38,5 +37,4 @@ serde = "1"
 
 # uncategory
 docker-api = "0.12"
-rand = "0.8"
 mimalloc = { version = "*", default-features = false }
