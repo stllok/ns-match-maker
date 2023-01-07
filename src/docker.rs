@@ -18,7 +18,7 @@ static SERVER_CONFIG: Lazy<Value> = Lazy::new(|| {
     serde_json::from_reader(BufReader::new(
         File::open("config.json").expect("Unable to open config.json"),
     ))
-    .expect("Unable to decode config,json to json")
+    .expect("Unable to decode config.json to json")
 });
 
 pub async fn create_server(gamemode: String) -> Result<String> {

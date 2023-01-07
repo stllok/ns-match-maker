@@ -1,0 +1,20 @@
+{
+    "content_dir": "/home/you/where/is/ur/content",
+    "image": "your-goodest-image:oldest",
+    "masterserver": "https://your.goodest.masterserver.wtf.dude.com",
+    "gameserver": {
+        "ps": {
+            "Argument": "+map mp_forwardbase_kodai +ns_private_match_last_mode \"ps\" +setplaylist ps +mp_gamemode ps +setplaylistvaroverrides \"run_epilogue 0\"",
+            "MaxServer": 114514
+        },
+        "aitdm": {
+            "Argument": "+map mp_forwardbase_kodai +ns_private_match_last_mode \"aitdm\" +setplaylist aitdm +mp_gamemode aitdm +setplaylistvaroverrides \"run_epilogue 0\"",
+            "MaxServer": 727
+        }
+    },
+    "globalArgument": " +ns_report_server_to_masterserver 1 +ns_report_sp_server_to_masterserver 0 +ns_auth_allow_insecure 0 +ns_erase_auth_info 1 +everything_unlocked 1 +ns_should_return_to_lobby 0 +net_chan_limit_mode 0 +net_chan_limit_msec_per_sec 200 +sv_querylimit_per_sec 15 +base_tickinterval_mp 0.016666667 +sv_updaterate_mp 20 +sv_minupdaterate 20 +sv_max_snapshots_multiplayer 300 +net_data_block_enabled 0 +host_skip_client_dll_crc 1 +ns_private_match_only_host_can_change_settings 2",
+    "StartServerPort": 37015,
+    "EndServerPort": 38015,
+    "StartMasterPort": 8081,
+    "EndMasterPort": 9090
+}
