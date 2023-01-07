@@ -28,7 +28,7 @@ jobs:
         
       - name: Generate tags
         id: docker_tags
-        uses: ghcr.io/${{github.repository_owner}}/ns-match-maker:latest
+        run: ./scripts/mktag.sh ${{steps.img.outputs.name}} dev-git
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
