@@ -26,8 +26,8 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
         
-      - id: tags
-        name: Generate tags
+      - name: Generate tags
+        id: docker_tags
         run: ./scripts/mktag.sh ${{steps.img.outputs.name}} dev-git
 
       - name: Login to GitHub Container Registry
