@@ -21,7 +21,7 @@ static SERVER_CONFIG: Lazy<Value> = Lazy::new(|| {
     ))
     .expect("Unable to decode config.json to json")
 });
-static CONTAINERS_IDX: Lazy<DashMap<String, String>> = Lazy::new(|| DashMap::new());
+static CONTAINERS_IDX: Lazy<DashMap<String, String>> = Lazy::new(DashMap::new);
 
 pub async fn entrypoint() {
     for container in containers().await.unwrap_or_default() {
