@@ -1,3 +1,4 @@
+use docker::entrypoint;
 use mimalloc::MiMalloc;
 
 #[global_allocator]
@@ -23,6 +24,8 @@ async fn main() -> Result<()> {
         .with(EnvFilter::try_from_default_env().unwrap())
         .with(tracing_subscriber::fmt::Layer::new())
         .try_init()?;
+
+    entrypoint().await;
 
     Toplevel::new()
         .start("axum", web_api_server)

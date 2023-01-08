@@ -2,7 +2,7 @@
     "content_dir": "/home/you/where/is/ur/content",
     "image": "your-goodest-image:oldest",
     "masterserver": "https://your.goodest.masterserver.wtf.dude.com",
-    "gameserver": {
+    "playlist": {
         "ps": {
             "Argument": "+map mp_forwardbase_kodai +ns_private_match_last_mode \"ps\" +setplaylist ps +mp_gamemode ps +setplaylistvaroverrides \"run_epilogue 0\"",
             "MaxServer": 114514

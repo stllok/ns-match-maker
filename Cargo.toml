@@ -38,3 +38,4 @@ serde = "1"
 # uncategory
 docker-api = "0.12"
 mimalloc = { version = "*", default-features = false }
+dashmap = "5.4.0"
